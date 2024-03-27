@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+    REGISTRO DE CLIENTE
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido</label>
+        <input type="email" [(ngModel)]="cliente.nombre"   class="form-control" >
+      </div>
+      <br>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
+        <input type="password" [(ngModel)]="cliente.password"   class="form-control" id="exampleFormControlInput1">
+      </div>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" [(ngModel)]="quiereContacto" >
+        <label class="form-check-label" for="flexCheckIndeterminate">
+          ¿Desea ingresar sus contactos?
+        </label>
+      </div>  
+      <div class="mb-3" *ngIf="quiereContacto" >
+        <label for="correo" class="form-label">Dirección de correo electrónico:</label>
+        <input type="email" [(ngModel)]="cliente.email" class="form-control" id="correo" aria-describedby="correoHelp">
+        <span id="correoHelp"  class="text-secondary">Nunca compartiremos tu correo con nadie.</span>
+        
+      </div>
+      <br>
+      <div class="mb-3" *ngIf="quiereContacto">
+        <label for="exampleFormControlInput1" class="form-label">Teléfono celular:</label>
+        <input type="email" [(ngModel)]="cliente.telefono" class="form-control" id="correo" aria-describedby="correoHelp">
+        <span class="text-secondary">Tu teléfono está seguro con nosotros.</span>
+      </div>
+      <br>
+      
+    </div>
+    <button type="button" class="btn btn-success" (click)="registra()">Registrar</button>
+  </div>
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="button" (click)="goHome()">Inicio</button>
+  </div>
